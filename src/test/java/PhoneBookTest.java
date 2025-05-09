@@ -1,5 +1,5 @@
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
@@ -8,8 +8,8 @@ public class PhoneBookTest {
 
     static PhoneBook phoneBook;
 
-    @BeforeEach
-    public void init() {
+    @BeforeAll
+    public static void init() {
         phoneBook = new PhoneBook();
     }
 
