@@ -8,13 +8,13 @@ public class PhoneBookTest {
 
     static PhoneBook phoneBook;
 
-    @BeforeAll
-    public static void init() {
-        phoneBook = new PhoneBook();
-    }
-
     @Nested
     class TestAdd {
+        @BeforeAll
+        public static void init() {
+            phoneBook = new PhoneBook();
+        }
+
         @ParameterizedTest
         @CsvSource({
                 "Мария, 70951112233, 1",
@@ -26,6 +26,16 @@ public class PhoneBookTest {
             Integer result = phoneBook.add(name, number);
             // Assert
             Assertions.assertEquals(recordCount, result);
+        }
+
+        @ParameterizedTest
+        @CsvSource({
+                "-, 70951112233",
+                "Петр, -1112233"
+        })
+        public void testAddError(String name, Long number) {
+            // Act & Assert
+            Assertions.assertThrows(IllegalArgumentException.class, () -> phoneBook.add(name, number));
         }
     }
 
