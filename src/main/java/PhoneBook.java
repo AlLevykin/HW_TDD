@@ -27,6 +27,10 @@ public class PhoneBook {
     }
 
     public Long findByName (String name) throws ClassNotFoundException {
-        return null;
+
+        if (!nameStore.containsKey(name))
+            throw new ClassNotFoundException("Contact not found");
+
+        return nameStore.get(name);
     }
 }
