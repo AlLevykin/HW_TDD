@@ -67,5 +67,24 @@ public class PhoneBookTest {
             // Act & Assert
             Assertions.assertThrows(ClassNotFoundException.class, () -> phoneBook.findByNumber(number));
         }
+
+        @Test
+        public void testFindByName() throws ClassNotFoundException {
+            // Arrange
+            String name = "Петр";
+            Long expected = 73511112233L;
+            // Act
+            Long result = phoneBook.findByName(name);
+            // Assert
+            Assertions.assertEquals(expected, result);
+        }
+
+        @Test
+        public void testFindByNameNotFound() {
+            // Arrange
+            String name = "Иван";
+            // Act & Assert
+            Assertions.assertThrows(ClassNotFoundException.class, () -> phoneBook.findByName(name));
+        }
     }
 }

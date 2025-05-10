@@ -25,4 +25,8 @@ public class PhoneBook {
 
         return numberStore.get(number);
     }
+
+    public Long findByName (String name) throws ClassNotFoundException {
+        return null;
+    }
 }
