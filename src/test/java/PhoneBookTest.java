@@ -50,7 +50,7 @@ public class PhoneBookTest {
         }
 
         @Test
-        public void testFindByNumber() {
+        public void testFindByNumber() throws ClassNotFoundException {
             // Arrange
             Long number = 73511112233L;
             String expected = "Петр";
