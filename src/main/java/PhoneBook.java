@@ -15,4 +15,8 @@ public class PhoneBook {
         store.put(name, number);
         return store.size();
     }
+
+    public String findByNumber (Long number) {
+        return null;
+    }
 }

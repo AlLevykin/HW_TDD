@@ -1,6 +1,7 @@
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
@@ -39,4 +40,32 @@ public class PhoneBookTest {
         }
     }
 
+    @Nested
+    class TestFind {
+        @BeforeAll
+        public static void init() {
+            phoneBook = new PhoneBook();
+            phoneBook.add("Мария", 70951112233L);
+            phoneBook.add("Петр", 73511112233L);
+        }
+
+        @Test
+        public void testFindByNumber() {
+            // Arrange
+            Long number = 73511112233L;
+            String expected = "Петр";
+            // Act
+            String result = phoneBook.findByNumber(number);
+            // Assert
+            Assertions.assertEquals(expected, result);
+        }
+
+        @Test
+        public void testFindByNumberNotFound() {
+            // Arrange
+            Long number = 79111111111L;
+            // Act & Assert
+            Assertions.assertThrows(ClassNotFoundException.class, () -> phoneBook.findByNumber(number));
+        }
+    }
 }
