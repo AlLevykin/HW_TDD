@@ -33,4 +33,8 @@ public class PhoneBook {
 
         return nameStore.get(name);
     }
+
+    public String printAllNames () {
+        return null;
+    }
 }

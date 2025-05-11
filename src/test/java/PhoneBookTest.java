@@ -87,4 +87,26 @@ public class PhoneBookTest {
             Assertions.assertThrows(ClassNotFoundException.class, () -> phoneBook.findByName(name));
         }
     }
+
+    @Nested
+    class TestPrintAllNames {
+        @BeforeAll
+        public static void init() {
+            phoneBook = new PhoneBook();
+            phoneBook.add("Яна", 70951112233L);
+            phoneBook.add("Аня", 73511112233L);
+            phoneBook.add("Петр", 79221112233L);
+            phoneBook.add("Борис", 79631112233L);
+        }
+
+        @Test
+        public void testPrintAllNames() {
+            // Arrange
+            String expected = "Аня, Борис, Петр, Яна, ";
+            // Act
+            String result = phoneBook.printAllNames();
+            // Assert
+            Assertions.assertEquals(expected, result);
+        }
+    }
 }
