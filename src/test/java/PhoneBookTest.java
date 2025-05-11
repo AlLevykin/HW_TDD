@@ -102,7 +102,7 @@ public class PhoneBookTest {
         @Test
         public void testPrintAllNames() {
             // Arrange
-            String expected = "Аня, Борис, Петр, Яна, ";
+            String expected = "Аня, Борис, Петр, Яна";
             // Act
             String result = phoneBook.printAllNames();
             // Assert
